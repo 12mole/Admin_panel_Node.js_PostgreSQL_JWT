@@ -1,0 +1,183 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  padding: 8px 12px;
+  margin-left: 8px;
+  background: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover { 
+  background: #0056b3; 
+}
+
+.login-container {
+  max-width: 360px;
+  margin: 80px auto;
+  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 8px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  margin-top: 10px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.error { 
+  color: red; 
+  font-size: .9em; 
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.table-actions {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.controls { 
+  margin: 12px; 
+  display:flex; 
+  gap:8px; 
+  align-items:center; 
+  flex-wrap:wrap; 
+}
+
+.modal { 
+  position: fixed; 
+  top:0; 
+  left:0; 
+  right:0; 
+  bottom:0; 
+  display:flex; 
+  justify-content:center; 
+  align-items:center; 
+  background: rgba(0,0,0,0.5); 
+}
+
+.modal.hidden { 
+  display:none; 
+}
+
+.modal-content { 
+  background:white; 
+  padding:16px; 
+  border-radius:6px; 
+  width: 320px; 
+  max-width:95%; 
+}
+
+.modal-actions { 
+  display:flex; 
+  justify-content: space-between; 
+  gap:8px; 
+  margin-top:8px; 
+}
+
+@media (max-width: 600px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  td:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  td:last-child button {
+    width: 100%;
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .controls label {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .pagination button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    min-width: 40px;
+  }
+
+  .pagination span {
+    font-size: 16px;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-width: 95%;
+    padding: 12px;
+  }
+}
+
+#errorModal {
+  position: fixed;
+  z-index: 9999;
+}

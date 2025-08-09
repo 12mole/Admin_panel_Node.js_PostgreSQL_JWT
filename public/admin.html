@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin Panel</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Admin Panel</h1>
+    <div class="header-actions">
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </header>
+  
+  <main>
+    <!-- Filter and Search Panel -->
+    <section class="controls">
+      <label>Sort:
+        <select id="sortSelect">
+          <option value="username">Username</option>
+          <option value="first_name">First name</option>
+          <option value="birthdate">Birthdate</option>
+        </select>
+      </label>
+      <label>Order:
+        <select id="orderSelect">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </label>
+      <label>Search:
+        <input type="text" id="searchInput" placeholder="Username or First name">
+      </label>
+      <div class="pagination">
+        <span>Page:</span>
+        <button id="prevPage">&lt;</button>
+        <span id="pageNum">1</span>
+        <button id="nextPage">&gt;</button>
+      </div>
+    </section>
+
+    <!-- Buttons for working with the table -->
+    <section class="table-actions">
+      <button id="addBtn">Add</button>
+      <button id="deleteSelectedBtn">Delete selected</button>
+    </section>
+
+    <!-- User Table -->
+    <table id="userTable">
+      <thead>
+        <tr>
+          <th><input id="selectAll" type="checkbox" /></th>
+          <th>ID</th>
+          <th>Username</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Gender</th>
+          <th>Birthdate</th>
+          <th>Admin</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+   </main>
+
+  <!-- Modal -->
+  <!-- Error Modal -->
+  <div id="errorModal" class="hidden modal">
+    <div class="modal-content">
+      <h2>ERROR</h2>
+      <p id="errorModalMessage"></p>
+      <button id="errorModalClose" class="btn-danger">Close</button>
+    </div>
+  </div>
+
+  <!-- User Details Modal -->
+  <div id="userDetailsModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h2>User Details</h2>
+      <div id="userDetailsContent"></div>
+      <div class="modal-actions">
+        <button type="button" id="closeDetailsBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add/Edit User Modal -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h2 id="modalTitle">Add user</h2>
+      <form id="userForm">
+        <input name="username" placeholder="Username" required />
+        <input name="password" type="password" placeholder="Password (leave empty to keep)" />
+        <input name="first_name" placeholder="First name" />
+        <input name="last_name" placeholder="Last name" />
+        <select name="gender">
+          <option value="">--Gender--</option>
+          <option value="male">male</option>
+          <option value="female">female</option>
+          <option value="other">other</option>
+        </select>
+        <input name="birthdate" type="date" />
+        <label class="checkbox-label">
+          <input name="is_admin" type="checkbox">
+          <span>Admin</span>
+        </label>
+
+        <div class="modal-actions">
+          <button type="submit">Save</button>
+          <button type="button" id="cancelBtn">Cancel</button>
+        </div>
+        <p id="formError" class="error"></p>
+      </form>
+    </div>
+  </div>
+
+  
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
