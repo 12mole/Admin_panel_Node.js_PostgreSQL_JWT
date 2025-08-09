@@ -8,12 +8,12 @@ Built with **Node.js (Express)**, **PostgreSQL**, and vanilla **HTML/CSS/JS**.
 ##  Installation
 
 ### 1 Clone repository
-```bash
+```
 git clone https://github.com/12mole/Admin_panel_Node.js_PostgreSQL_JWT.git
 cd Admin_panel_Node.js_PostgreSQL_JWT
 ```
 ### 2 Install dependencies
-```bash
+```
 npm install
 ```
 ### 3 Configure environment variables  
@@ -32,14 +32,15 @@ JWT_SECRET=3a8f7c2e1b0d9f4a6c5b2e8d1f0a3c7e6b9a4d2f8c1e5a0b3d6f9c2e4a7b1d0f8e3c6
 NODE_ENV=development
 ```
 ### 4 Initialize the database
-```bash
 # Create database
+```
 psql -U postgres -c "CREATE DATABASE user_admin;"
-
+```
 # Create tables and insert test data
+```
 psql -U postgres -d user_admin -f init-db.sql
 ```
 ### 5 Start the server
-```bash
+```
 npm start
 ```
