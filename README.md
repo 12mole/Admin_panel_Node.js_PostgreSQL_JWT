@@ -9,7 +9,7 @@ Built with **Node.js (Express)**, **PostgreSQL**, and vanilla **HTML/CSS/JS**.
 
 ### 1 Clone repository
 ```bash
-git clone https://github.com/12mole/Admin-panel-Node.js-PostgreSQL-JWT-.git
+git clone https://github.com/12mole/Admin_panel_Node.js_PostgreSQL_JWT.git
 cd user-admin
 ```
 ### 2 Install dependencies
