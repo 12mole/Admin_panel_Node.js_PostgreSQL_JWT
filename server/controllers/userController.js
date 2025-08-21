@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 // GET /api/users
 exports.list = async (req, res) => {
   try {
-    // Приводим все параметры к нормальным типам
+    // We bring all parameters to normal types
     const pageNum = parseInt(req.query.page, 10) || 1
     const limitNum = parseInt(req.query.limit, 10) || 10
     const sort = req.query.sort || 'username'
@@ -13,12 +13,12 @@ exports.list = async (req, res) => {
 
     const offset = (pageNum - 1) * limitNum
 
-    // Разрешённые поля для сортировки
+    // Allowed fields for sorting
     const allowedSort = ['id', 'username', 'first_name', 'last_name', 'birthdate']
     const sortField = allowedSort.includes(sort) ? sort : 'username'
     const sortOrder = order.toLowerCase() === 'desc' ? 'DESC' : 'ASC'
 
-    // Поиск
+    // Search
     let searchCondition = ''
     const searchParams = []
     if (search) {
@@ -30,14 +30,14 @@ exports.list = async (req, res) => {
       searchParams.push(`%${search}%`)
     }
 
-    // Считаем общее количество
+    // Counting the total number
     const countResult = await db.query(
       `SELECT COUNT(*) AS count FROM users ${searchCondition}`,
       searchParams
     )
     const total = parseInt(countResult.rows[0].count, 10)
 
-    // Получаем данные пользователей
+    // Getting user data
     const usersResult = await db.query(
       `SELECT id, username, first_name, last_name, gender, birthdate, is_admin
        FROM users
